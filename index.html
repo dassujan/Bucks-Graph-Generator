@@ -1,0 +1,223 @@
+<!-- a basic html document -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bucks Graph</title>
+    <link rel="icon" href="money.png" />
+    <!-- link to chart js lib -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- link to script.js -->
+    <script src="script.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- black bootstrap navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Bucks Graph</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- bootstrap tabs, with 2 tabs, first one called Data, second one called Chart -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="data-tab" data-bs-toggle="tab" data-bs-target="#data" type="button"
+                role="tab" aria-controls="data" aria-selected="true">Data</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="chart-tab" data-bs-toggle="tab" data-bs-target="#chart" type="button"
+                role="tab" aria-controls="chart" aria-selected="false">Chart</button>
+        </li>
+    </ul>
+
+    <!-- data tab content -->
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="data" role="tabpanel" aria-labelledby="data-tab">
+            <!-- bootstrap grid with 12 rows and 1 column for small screens, and 6 rows and 2 columns for medium screens and above,
+                each cell contains label of the month from January to December,
+                and 2 bootstrap number inputs side by side with labels, 1 for income and 1 for expenses -->
+            <div class="container" style="padding: 10px;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="january" class="fw-bold">January</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="januaryIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="januaryExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="february" class="fw-bold">February</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="februaryIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="februaryExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="march" class="fw-bold">March</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="marchIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="marchExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="april" class="fw-bold">April</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="aprilIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="aprilExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="may" class="fw-bold">May</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="mayIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="mayExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="june" class="fw-bold">June</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="juneIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="juneExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="july" class="fw-bold">July</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="julyIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="julyExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="august" class="fw-bold">August</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="augustIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="augustExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="september" class="fw-bold">September</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="septemberIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="septemberExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="october" class="fw-bold">October</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="octoberIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="octoberExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <label for="november" class="fw-bold">November</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="novemberIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="novemberExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6">
+                        <label for="december" class="fw-bold">December</label>
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1">Income</span>
+                            <input type="number" class="form-control" id="decemberIncome" placeholder="Income"
+                                aria-label="Income" aria-describedby="basic-addon1" />
+                            <span class="input-group-text" id="basic-addon1">Expenses</span>
+                            <input type="number" class="form-control" id="decemberExpenses" placeholder="Expenses"
+                                aria-label="Expenses" aria-describedby="basic-addon1" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- chart tab content -->
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade" id="chart" role="tabpanel" aria-labelledby="chart-tab">
+
+            <!-- bootstrap button with label "Download"  -->
+            <div class="container" style="padding: 10px;">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <button type="button" class="btn btn-outline-primary" id="download">Download</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- chart js bar chart -->
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
